@@ -1,0 +1,145 @@
+{
+	"info": {
+		"_postman_id": "3cf0e97b-35f9-4040-8fe7-943e24fed181",
+		"name": "Account",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "autorizationAccountpositive",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "1a9ac1d9-204d-44b6-a996-6c2e81d8a36a",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Checking for 'error' and its message\", function () {\r",
+							"     pm.response.to.be.json;\r",
+							"     pm.expect(pm.response.json()).to.have.property('true');\r",
+							"     pm.expect(pm.response.json().error).to.equal(\"Both a and b should be numbers.\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "5af61ff9-0588-4836-87c1-95c3d1d3161e",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"userName\": \"Olha\",\r\n  \"password\": \"Aolha9**\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{baseURL}}/Account/v1/Authorized"
+			},
+			"response": []
+		},
+		{
+			"name": "autorizationAccountNegative",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "1a9ac1d9-204d-44b6-a996-6c2e81d8a36a",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(404);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "7de4fd39-dd3f-4f25-9475-d3734aa85976",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"userName\": \"Olhaa\",\r\n  \"password\": \"Aolha9**\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{baseURL}}/Account/v1/Authorized"
+			},
+			"response": []
+		},
+		{
+			"name": "Token",
+			"id": "9b31792f-4f2b-4391-a80e-cabaf5deea57",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"userName\": \"Olha\",\r\n  \"password\": \"Aolha9**\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{baseURL}}/Account/v1/GenerateToken"
+			},
+			"response": []
+		},
+		{
+			"name": "User",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "46b33002-93ec-43b9-8dd5-eaf3a77606cf",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(406);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "a4137326-9d88-4b89-86b8-0668e76dff07",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"userName\": \"Olyaa\",\r\n  \"password\": \"Olya11**\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{baseURL}}/Account/v1/User"
+			},
+			"response": []
+		}
+	]
+}
